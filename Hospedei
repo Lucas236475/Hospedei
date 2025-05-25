@@ -1,0 +1,132 @@
+package javaapplication17;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class JavaApplication17 {
+
+    public static void main(String[] args) {
+    //Menu do sistema de Check-out
+        Scanner menu = new Scanner(System.in);
+        ArrayList<String> hospede = new ArrayList<>();
+        int escolha, bloco;
+        
+        do {
+        System.out.println("==== BEM VINDO(A) ====");
+        System.out.println("1 - Check-in");
+        System.out.println("2 - Check-out");
+        System.out.println("3 - In-House");
+        System.out.println("4 - Sair ");
+        System.out.println("Informe a opção desejada aqui: ");
+        
+        escolha = menu.nextInt();
+        menu.nextLine();
+        
+        switch(escolha){
+            case 1: 
+                System.out.println("Carregando a opção de Check-In");
+                System.out.println("===============================");
+                esperar(1500);
+                //Cadastro
+                System.out.println("Bem-vindo a opção de cadastro");
+                System.out.println("===============================");
+                
+                //Nome
+                System.out.println("Informe o nome: ");
+                System.out.println("===============================");
+                String nome = menu.nextLine();
+                System.out.println("===============================");
+                
+                //Contato
+                System.out.println("Informe o numero para contato: ");
+                System.out.println("===============================");
+                int contato = menu.nextInt();
+                System.out.println("===============================");
+                
+                //Adicionando na lista
+                hospede.add(nome);
+                
+                //Cadastro Realizado
+                System.out.println("Cadastro realizado");
+                System.out.println("===============================");
+                esperar(2000);
+                System.out.println("Bem-vindo(a): " +nome);
+                System.out.println("===============================");
+                break;
+                
+            case 2:
+                System.out.println("Carregando a opção de Check-Out");
+                System.out.println("===============================");
+                esperar(1500);
+                        if (hospede.isEmpty()) {
+                        System.out.println("Não há hospedes para fazer Check-out.");
+                    } 
+                    else {
+                        for (String h : hospede) {
+                            System.out.println("- " + h);
+                            }
+                        }
+                System.out.println("===============================");
+                System.out.println("Informe quem gostaria de fazer Check-out: ");
+                String nomeRemover = menu.nextLine();
+                
+                if (hospede.remove(nomeRemover)){
+                    System.out.println("===============================");
+                    System.out.println("Fazendo Check-out...");
+                    System.out.println("===============================");
+                    esperar(3000);
+                    System.out.println("Hospede "+ nomeRemover + " realizou o check-out com sucesso");
+                    System.out.println("===============================");
+                    esperar(1500);
+                    break;
+                }
+                else{
+                    System.out.println("Hospede não encontrado");
+                    System.out.println("===============================");
+                    ;
+                }
+                    System.out.println("1- Sair");
+                    System.out.println("===============================");
+                    bloco = menu.nextInt();
+                    System.out.println("");
+                break;
+            case 3: 
+                
+                System.out.println("Carregando a opção de In-House");
+                System.out.println("===============================");
+                esperar(1500);
+                System.out.println("Pessoas atualmente In-House:");
+                    if (hospede.isEmpty()) {
+                        System.out.println("Nenhum hóspede no momento.");
+                    } 
+                    else {
+                        for (String h : hospede) {
+                            System.out.println("- " + h);
+                            }
+                        }
+                    System.out.println("1- Sair");
+                    bloco = menu.nextInt();
+                    System.out.println("");
+                break;
+            case 4:
+                System.out.println("Finalizando sistema...");
+                
+                break;
+            default:
+                System.out.println("Opção Inválida");
+                break;
+                
+        }
+        
+        }
+        while (escolha != 4);
+        menu.close();
+        System.out.println("Sistema finalizado");
+    }
+   public static void esperar(int milissegundos) {
+        try {
+            Thread.sleep(milissegundos);
+        } catch (InterruptedException e) {
+            System.out.println("Erro ao pausar o sistema.");
+        } 
+}
+}
