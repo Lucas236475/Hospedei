@@ -1,5 +1,5 @@
 # Hospedei
-Um sistema simples de Hotelaria feio em Java
+Um sistema simples de Hotelaria feito em Java
 
 Este projeto é um sistema simples de **Check-in, Check-out e controle de hóspedes (In-House)** feito em **Java**, utilizando o terminal/console para entrada e saída de dados.
 
