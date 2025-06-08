@@ -1,14 +1,16 @@
-package javaapplication17;
+package hospedei;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class JavaApplication17 {
+public class Hospedei {
 
     public static void main(String[] args) {
     //Menu do sistema de Check-out
         Scanner menu = new Scanner(System.in);
         ArrayList<String> hospede = new ArrayList<>();
-        int escolha, bloco;
+        
+        int escolha;
+        String contato;
         
         do {
         System.out.println("==== BEM VINDO(A) ====");
@@ -39,7 +41,7 @@ public class JavaApplication17 {
                 //Contato
                 System.out.println("Informe o numero para contato: ");
                 System.out.println("===============================");
-                int contato = menu.nextInt();
+                contato = menu.nextLine();
                 System.out.println("===============================");
                 
                 //Adicionando na lista
@@ -59,6 +61,9 @@ public class JavaApplication17 {
                 esperar(1500);
                         if (hospede.isEmpty()) {
                         System.out.println("Não há hospedes para fazer Check-out.");
+                        esperar(2000);
+                        break;
+                       
                     } 
                     else {
                         for (String h : hospede) {
@@ -86,7 +91,7 @@ public class JavaApplication17 {
                 }
                     System.out.println("1- Sair");
                     System.out.println("===============================");
-                    bloco = menu.nextInt();
+                    escolha = menu.nextInt();
                     System.out.println("");
                 break;
             case 3: 
@@ -104,7 +109,7 @@ public class JavaApplication17 {
                             }
                         }
                     System.out.println("1- Sair");
-                    bloco = menu.nextInt();
+                    escolha = menu.nextInt();
                     System.out.println("");
                 break;
             case 4:
